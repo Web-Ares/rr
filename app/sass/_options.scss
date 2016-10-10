@@ -1,0 +1,65 @@
+.options {
+  position: relative;
+  padding: 37px 0;
+  background: #fff;
+  text-align: center;
+
+  .clouds {
+
+    &.clouds_1 {
+      top: -9%;
+    }
+    &.clouds_2 {
+      display: none;
+    }
+
+  }
+
+}
+.options__checkbox {
+  max-width: 500px;
+  margin: 0 auto 65px;
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .options {
+    padding: 37px 0 119px;
+
+    .clouds {
+
+      &.clouds_1 {
+        display: none;
+      }
+      &.clouds_2 {
+        display: block;
+        top: 43%;
+      }
+
+    }
+
+  }
+  .options__checkbox {
+    max-width: 815px;
+    padding: 0 0 0 68px;
+  }
+
+}
+@media (min-width: $desktop) {
+
+
+  .options {
+    padding: 37px 0 119px;
+
+    .clouds {
+
+      &.clouds_1 {
+        display: block;
+        top: 21%;
+      }
+
+    }
+
+  }
+
+}

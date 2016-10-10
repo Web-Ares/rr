@@ -1,0 +1,42 @@
+.guy {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+
+  img {
+    position: relative;
+    z-index: 2;
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .guy {
+    opacity: 1;
+    visibility: visible;
+    height: 381px;
+    position: absolute;
+    bottom: -168px;
+    right: -78px;
+  }
+  .guy_2 {
+    bottom: -90px;
+    height: 306px;
+    right: auto;
+    left: -53px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+  .guy__hand {
+    position: absolute;
+    z-index: 1;
+    top: 116px;
+    right: 120px;
+    -webkit-transform: rotate(-50deg);
+    transform: rotate(-50deg);
+    -webkit-transform-origin: 85% 14%;
+    transform-origin: 85% 14%;
+  }
+
+}

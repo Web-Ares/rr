@@ -1,0 +1,161 @@
+.order {
+  padding: 3px 0 0 0;
+  text-align: center;
+  font-size: 20px;
+  line-height: 24px;
+
+  >div {
+
+    &:first-child {
+
+      position: relative;
+      max-width: 1251px;
+      padding: 0 0 67px 0;
+      margin: 0 auto;
+
+    }
+
+  }
+
+  p {
+    margin: 0 0 19px 0;
+  }
+
+}
+.order__chosen-data {
+  margin: 0 0 19px;
+  color: rgba(98,98,98,0.5);
+
+  a {
+    color: rgba(98,98,98,0.5);
+    border-bottom: 1px solid rgba(98,98,98,0.5);
+
+    &:hover {
+      border-bottom-color: transparent;
+    }
+
+  }
+
+}
+.order__inner {
+  max-width: 944px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.order__place {
+  max-width: 450px;
+  margin: 0 auto;
+
+  input[type="text"],
+  input[type="password"],
+  textarea,
+  input[type="email"],
+  input[type="tel"],
+  input[type="phone"],
+  input[type="number"] {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    max-width: 257px;
+    height: 42px;
+    border: 1px solid #349f4e;
+    border-radius: 2px;
+    padding: 10px 15px;
+    margin: 0 0 9px;
+    color: rgba(98,98,98,1);
+    font-size: 17px;
+    line-height: 17px;
+    @include main-font1();
+    -webkit-transition: border 0.3s ease;
+    transition: border 0.3s ease;
+
+    &:focus {
+      border-color: #1f5c2c;
+    }
+    &.not-valid,
+    &.not-touched {
+      border-color: #a2000f;
+    }
+
+  }
+
+  .gform_fields {
+
+    .gfield_description ,
+    label {
+      display: none;
+    }
+
+  }
+  .gform_footer {
+    padding: 25px 0 34px;
+  }
+  .gfield_error {
+
+    input[type="text"],
+    input[type="password"],
+    textarea,
+    input[type="email"],
+    input[type="tel"],
+    input[type="phone"],
+    input[type="number"] {
+
+      border-color: #a2000f;
+
+    }
+
+  }
+
+}
+.order__send {
+  padding: 25px 0 34px;
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .order {
+
+    .site__title {
+      margin: 0 0 21px;
+    }
+
+    .guy_2 {
+      bottom: 0;
+      height: 399px;
+      left: 0;
+    }
+
+    .clouds{
+
+      &.clouds_1 {
+        top: auto;
+        bottom: 14.5%;
+      }
+      &.clouds_2 {
+        top: -8%;
+      }
+
+    }
+
+  }
+
+}
+@media (min-width: $desktop) {
+
+  .order {
+
+    .clouds{
+
+      &.clouds_1 {
+        top: auto;
+        bottom: 14.5%;
+      }
+      &.clouds_2 {
+        top: -8%;
+      }
+
+    }
+
+  }
+
+}

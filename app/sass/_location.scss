@@ -1,0 +1,140 @@
+.location {
+  position: relative;
+  padding: 65px 0 30px;
+  background: #fff;
+
+  .clouds {
+
+    &.clouds_2 {
+      top: -5%;
+    }
+
+  }
+
+}
+.location__radio {
+  padding: 13px 0 0;
+
+  .nice-radio {
+    max-width: 500px;
+    margin: 0 auto 40px;
+
+    label {
+      height: 100%;
+      padding: 30px 25px 23px 29px;
+      border: 1px solid transparent;
+      background: #f3f3f3;
+      @include main-font2();
+      font-size: 20px;
+      line-height: 24px;
+      -webkit-transition: box-shadow 0.3s ease, border 0.3s ease, color 0.3s ease;
+      transition: box-shadow 0.3s ease, border 0.3s ease, color 0.3s ease;
+
+      >span {
+
+        &:first-child {
+          display: block;
+          padding: 0 0 0 30px;
+        }
+
+      }
+
+      &:before {
+        top: 39px;
+        left: 31px;
+        background: #5b5b5b;
+      }
+      &:after {
+        top: 33px;
+        left: 25px;
+        border-color: #5b5b5b;
+      }
+
+    }
+    input[ type = radio ] {
+
+      &:checked + label {
+        border-color: #349f4e;
+        box-shadow: 0 0 10px 0 rgba(52, 159, 78, 0.4);
+
+        &:before {
+          background: #349f4e;
+        }
+        &:after {
+          border-color: #349f4e;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+.location__list {
+  display: block;
+  padding: 23px 0 0 0;
+  font-size: 15px;
+  line-height: 18px;
+
+  span {
+    display: block;
+    position: relative;
+    margin: 0 0 8px;
+    padding: 0 0 0 24px;
+    color: #5b5b5b;
+    @include main-font1();
+
+    &:after {
+      position: absolute;
+      top: 2px;
+      left: 0;
+      width: 12px;
+      height: 12px;
+      border-radius: 12px;
+      background: url("../img/check.png") no-repeat center #707070;
+      background-size: 7px 7px;
+      content: '';
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .location {
+    //@include flexbox();
+    //@include flex-wrap(wrap);
+    //@include flex-direction(row);
+    //@include align-items(stretch);
+    //@include justify-content(space-between);
+
+    .clouds {
+
+      &.clouds_2 {
+        top: -8%;
+      }
+
+    }
+
+  }
+  .location__radio {
+    @include flexbox();
+    @include flex-wrap(wrap);
+    @include flex-direction(row);
+    @include align-items(stretch);
+    @include justify-content(space-between);
+
+    .nice-radio {
+      max-width: 100%;
+      margin: 0;
+      width: 32%;
+    }
+
+  }
+
+}
+@media (min-width: $desktop) {
+
+}

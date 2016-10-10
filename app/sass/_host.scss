@@ -1,0 +1,135 @@
+.host {
+  position: relative;
+  padding: 28px 0 100px;
+
+  .clouds {
+
+    &.clouds_1 {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+  }
+
+}
+.host__inner {
+  position: relative;
+  max-width: 1293px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.host__offer {
+  display: block;
+  margin: 0 0 40px;
+  font-size: 14px;
+  line-height: 24px;
+  color: rgba(85,85,85,0.5);
+  text-align: center;
+}
+.host__discount {
+  position: absolute;
+  top: -27px;
+  left: 0;
+  font-size: 14px;
+  line-height: 14px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  color: #fff;
+  @include main-font1();
+  border-radius: 22px;
+  background: rgba(70,70,70,0.9);
+  -webkit-transform: rotate(-6deg);
+  transform: rotate(-6deg);
+}
+.host__head {
+  max-width: 750px;
+  margin: 0 auto;
+}
+.host__clients {
+  margin: 0 auto 30px;
+  max-width: 511px;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+}
+
+
+@media (min-width: $tablet-portrait) {
+
+  .host {
+
+    .clouds {
+
+      &.clouds_1 {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+    }
+
+  }
+  .host__offer {
+    margin: 0;
+    text-align: right;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: -0.3px;
+    padding: 0 11px 0 0;
+  }
+  .host__discount {
+    top: -27px;
+    left: -10px;
+    font-size: 17px;
+    line-height: 17px;
+    padding: 14px 23px;
+  }
+  .host__items {
+    @include flexbox();
+    @include flex-wrap(wrap);
+    @include flex-direction(row);
+    @include justify-content(space-between);
+    @include align-items(flex-start);
+    padding-left: 36px;
+
+    .site__list {
+      padding: 0 10px 0 0;
+      width: 54%;
+    }
+    .host__clients {
+      width: 46%;
+    }
+
+  }
+  .host__clients {
+    margin: 0;
+  }
+
+}
+@media (min-width: $desktop) {
+
+  .host {
+    padding: 28px 0 168px;
+
+    .clouds {
+
+      &.clouds_1 {
+        opacity: 1;
+        visibility: visible;
+      }
+
+    }
+
+  }
+  .host__inner {
+    max-width: 1294px;
+    padding: 0 65px;
+  }
+  .host__discount {
+    left: -78px;
+  }
+
+}

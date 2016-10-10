@@ -1,0 +1,100 @@
+.learn-more {
+  position: absolute;
+  bottom: 19px;
+  left: 50%;
+  padding: 0 0 20px;
+  color: #349f4e;
+  font-size: 20px;
+  line-height: 24px;
+  @include main-font2();
+  text-transform: uppercase;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+
+  &:after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    margin: 0 0 0 -6px;
+    border-top: 2px solid #349f4e;
+    border-left: 2px solid #349f4e;
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+    content: '';
+    -webkit-animation-name: down;
+    -webkit-animation-duration: 1500ms;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: down;
+    animation-duration: 1500ms;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    -webkit-transition: border 0.3s ease;
+    transition: border 0.3s ease;
+  }
+  &:hover {
+    color: #2a8341;
+
+    &:after {
+      border-top-color: #2a8341;
+      border-left-color: #2a8341;
+    }
+
+  }
+
+}
+
+@-webkit-keyframes down {
+  0% {
+    -webkit-transform: rotate(-135deg) translateY(0) translateX(0);
+  }
+  25% {
+    -webkit-transform: rotate(-135deg) translateY(-3px) translateX(-3px);
+  }
+  50% {
+    -webkit-transform: rotate(-135deg) translateY(0) translateX(0);
+  }
+  75% {
+    -webkit-transform: rotate(-135deg) translateY(3px) translateX(3px);
+  }
+  100% {
+    -webkit-transform: rotate(-135deg) translateY(0) translateX(0);
+  }
+}
+@keyframes down {
+  0% {
+    -webkit-transform: rotate(-135deg) translateY(0) translateX(0);
+  }
+  25% {
+    -webkit-transform: rotate(-135deg) translateY(-3px) translateX(-3px);
+  }
+  50% {
+    -webkit-transform: rotate(-135deg) translateY(0) translateX(0);
+  }
+  75% {
+    -webkit-transform: rotate(-135deg) translateY(3px) translateX(3px);
+  }
+  100% {
+    -webkit-transform: rotate(-135deg) translateY(0) translateX(0);
+  }
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .learn-more {
+    font-size: 27px;
+    line-height: 32px;
+  }
+
+}
+@media (min-width: $desktop) {
+
+  .learn-more {
+    bottom: 56px;
+  }
+
+}

@@ -1,0 +1,186 @@
+.setup-process {
+  position: relative;
+  z-index: 3;
+  padding: 60px 0;
+  text-align: center;
+
+  .site__title {
+    margin: 0 0 10px;
+  }
+  .clouds {
+
+    &.clouds_1 {
+      top: -7.4%;
+    }
+    &.clouds_2 {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+  }
+
+}
+.setup-process__inner {
+  position: relative;
+  max-width: 910px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.setup-process__actions {
+  max-width: 741px;
+  margin: 0 auto 25px;
+  font-size: 14px;
+  line-height: 18px;
+}
+.setup-process__actions-item {
+  position: relative;
+  padding: 60px 0;
+  background-position: top center;
+  background-repeat: no-repeat;
+
+  &:after {
+    position: absolute;
+    bottom: 7px;
+    left: 50%;
+    width: 6px;
+    height: 46px;
+    background: url("../img/dott.png") repeat-y center top;
+    background-size: 6px 4px;
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+    content: '';
+  }
+
+  &:nth-child(1) {
+    background-image: url("../img/setup-action-icon1.png");
+    background-size: 42px;
+  }
+  &:nth-child(2) {
+    background-image: url("../img/setup-action-icon2.png");
+    background-size: 32px 42px;
+  }
+  &:nth-child(3) {
+    background-image: url("../img/setup-action-icon3.png");
+    background-size: 32px 43px;
+  }
+  &:last-child {
+
+    &:after {
+      display: none;
+    }
+
+  }
+
+}
+.setup-process__info {
+  display: block;
+  margin: 20px 0;
+  font-size: 15px;
+  line-height: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  @include main-font2();
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .setup-process {
+
+    .site__title {
+      margin: 0 0 1px;
+    }
+    .site__list {
+      padding-left: 113px;
+      margin-bottom: 44px;
+    }
+    .clouds {
+
+      &.clouds_1 {
+        top: -10.4%;
+      }
+
+    }
+
+  }
+  .setup-process__items {
+    @include flexbox();
+    @include flex-wrap(wrap);
+    @include flex-direction(row);
+    @include justify-content(space-between);
+    @include align-items(flex-start);
+
+    >div {
+      width: 66.2%;
+
+      &:first-child {
+        width: 25%;
+      }
+
+    }
+
+  }
+  .setup-process__actions {
+    @include flexbox();
+    @include flex-direction(row);
+    @include align-items(flex-start);
+    @include justify-content(space-between);
+    padding: 35px 0 0;
+    margin: 0 auto 45px;
+    font-size: 20px;
+    line-height: 23px;
+  }
+  .setup-process__actions-item {
+    position: relative;
+    width: 25%;
+    padding: 70px 0 0;
+    background-position: top center;
+    background-repeat: no-repeat;
+
+    &:after {
+      position: absolute;
+      top: 25px;
+      bottom: auto;
+      left: auto;
+      right: -132%;
+      width: 104%;
+      height: 4px;
+      background: url("../img/dott.png") repeat-x center left;
+      background-size: 6px 4px;
+      -webkit-transform: translate(-50%);
+      transform: translate(-50%);
+      content: '';
+    }
+
+  }
+  .setup-process__info {
+    margin: 17px 0;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+}
+@media (min-width: $desktop) {
+
+  .setup-process {
+    padding: 89px 0 73px;
+
+    .clouds {
+
+      &.clouds_1 {
+        top: -12.4%;
+      }
+      &.clouds_2 {
+        opacity: 1;
+        visibility: visible;
+        top: 23.5%;
+      }
+
+    }
+
+  }
+  .setup-process__inner {
+    max-width: 1010px;
+    padding: 0 65px;
+  }
+
+}

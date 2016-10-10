@@ -1,0 +1,77 @@
+.information {
+  position: relative;
+  z-index: 3;
+  padding: 60px 0 100px;
+  background: #fff;
+}
+.information__inner {
+  position: relative;
+  max-width: 1158px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.information__device {
+  margin: 0 auto 30px;
+  max-width: 243px;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+}
+.information__awards {
+  margin: 0 auto 30px;
+  max-width: 637px;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+@media (min-width: $tablet-portrait) {
+
+  .information__items {
+    @include flexbox();
+    @include flex-wrap(wrap);
+    @include flex-direction(row);
+    @include justify-content(space-between);
+    @include align-items(flex-start);
+
+    >div {
+      width: 66.2%;
+
+      &:first-child {
+        width: 25%;
+      }
+
+    }
+
+  }
+  .information__device {
+    margin: 0;
+  }
+  .information__awards {
+    margin: 0 0 0 -5px;
+    padding: 6px 0 0;
+  }
+
+}
+@media (min-width: $desktop) {
+
+  .information {
+    padding: 103px 0 182px;
+
+    .learn-more {
+      bottom: 49px;
+    }
+
+  }
+  .information__inner {
+    max-width: 1048px;
+  }
+}

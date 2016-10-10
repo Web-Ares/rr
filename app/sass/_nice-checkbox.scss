@@ -1,0 +1,68 @@
+.nice-checkbox {
+  margin: 0 0 25px;
+  user-select: none;
+
+  input[ type = checkbox ] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+
+    &:checked + label {
+
+      &:before {
+        opacity: 1;
+      }
+      &:after {
+        border-color: #349f4e;
+      }
+
+    }
+
+    &:disabled + label {
+      cursor: default;
+      opacity: .5;
+    }
+
+  }
+  label {
+    display: block;
+    position: relative;
+    font-size: 20px;
+    line-height: 23px;
+    padding-left: 37px;
+    color: $nice-checkbox-color;
+    cursor: pointer;
+    -webkit-transition: color 0.3s ease;
+    transition: color 0.3s ease;
+
+    &:after,
+    &:before {
+      position: absolute;
+      content: '';
+    }
+
+    &:after {
+      top: 0;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      border: 2px solid $nice-checkbox-after-color;
+      -webkit-transition: border 0.3s ease;
+      transition: border 0.3s ease;
+    }
+
+    &:before {
+      opacity: 0;
+      top: 5px;
+      left: 5px;
+      background: url("../img/checkbox.png") no-repeat;
+      width: 11px;
+      height: 10px;
+      background-size: contain;
+      content: '';
+      -webkit-transition: opacity 0.3s ease;
+      transition: opacity 0.3s ease;
+    }
+
+  }
+
+}

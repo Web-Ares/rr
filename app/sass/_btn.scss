@@ -1,0 +1,216 @@
+.btn {
+  @include inline-flex();
+  @include flex-direction(row);
+  @include align-items(center);
+  @include justify-content(center);
+  overflow: hidden;
+  position: relative;
+  border: none;
+  width: 250px;
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 40px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 16px;
+  background: $btn-back;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  text-transform: uppercase;
+  @include main-font2();
+  -webkit-transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
+  transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
+
+  &:hover {
+
+    &:before {
+      -webkit-transform: scale(2);
+      transform: scale(2);
+
+    }
+
+  }
+  &:active {
+
+    &:before {
+      background: $btn-back-active;
+    }
+
+  }
+  &:before {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $btn-back-hover;
+    border-radius: 100%;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: background 0.3s ease, -webkit-transform 0.3s ease, color 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    content: '';
+  }
+
+}
+.btn_arrow {
+
+  &:after {
+    display: inline-block;
+    vertical-align: top;
+    width: 15px;
+    height: 13px;
+    background: url("../img/arrows.png") no-repeat center;
+    background-size: contain;
+    content: '';
+    margin: 0 0 0 13px;
+  }
+
+}
+button.btn {
+
+  &:after {
+    display: none;
+  }
+
+  >span {
+    position: relative;
+    width: 100%;
+    text-align: center;
+  }
+  &.btn_arrow {
+
+    >span {
+
+      &:after {
+        display: inline-block;
+        vertical-align: top;
+        width: 15px;
+        height: 13px;
+        background: url("../img/arrows.png") no-repeat center;
+        background-size: contain;
+        content: '';
+        margin: 1px 0 0 13px;
+      }
+
+    }
+
+  }
+
+}
+.btn_3 {
+  background: #ea6428;
+}
+.btn_4 {
+  width: 297px;
+  height: 49px;
+  background: #aaaaaa;
+  font-size: 15px;
+  line-height: 15px;
+}
+
+@-webkit-keyframes left {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  25% {
+    -webkit-transform: translateX(-3px);
+  }
+  50% {
+    -webkit-transform: translateX(0);
+  }
+  75% {
+    -webkit-transform: translateX(3px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+  }
+}
+@keyframes left {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  25% {
+    -webkit-transform: translateX(-3px);
+  }
+  50% {
+    -webkit-transform: translateX(0);
+  }
+  75% {
+    -webkit-transform: translateX(3px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+  }
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .btn {
+    width: 423px;
+    height: 81px;
+    padding: 0 10px;
+    border-radius: 80px;
+    font-size: 26px;
+    line-height: 26px;
+
+    &:before {
+      border-radius: 80px;
+    }
+
+  }
+  .btn_arrow {
+    padding: 0 10px 0 25px;
+
+    &:after {
+      width: 21px;
+      height: 19px;
+      margin: 0 0 0 13px;
+    }
+
+  }
+  button.btn {
+
+    &.btn_arrow {
+
+      >span {
+
+        &:after {
+          width: 21px;
+          height: 19px;
+          margin: 3px 0 0 13px;
+        }
+
+      }
+
+    }
+
+  }
+  .btn_2 {
+    width: 200px;
+  }
+  .btn_3 {
+    width: 313px;
+  }
+  .btn_4 {
+    width: 297px;
+    height: 49px;
+    font-size: 15px;
+    line-height: 15px;
+
+    &.btn_arrow {
+
+      &:after {
+        width: 14px;
+        height: 14px;
+        margin: -2px 0 0 13px;
+      }
+
+    }
+
+  }
+
+}

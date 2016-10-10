@@ -1,0 +1,23 @@
+.logo {
+  position: absolute;
+  top: 33px;
+  left: 50%;
+  width: 175px;
+  height: 57px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+}
+@media (min-width: $desktop) {
+
+}
