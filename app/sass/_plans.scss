@@ -14,13 +14,15 @@
   margin: 0 0 14px;
   //min-height: 120px;
   min-height: 130px;
-}
-.plans__title {
-  margin: 0 0 10px;
-  font-size: 20px;
-  line-height: 30px;
-  color: #349f4e;
-  @include main-font2();
+
+  >h2 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    line-height: 30px;
+    color: #349f4e;
+    @include main-font2();
+  }
+
 }
 .plans__list-row {
   @include flexbox();
