@@ -160,9 +160,8 @@
             _chosenData = _obj.find('.order__chosen-data span'),
             _dataRadio,
             _dataCheckbox,
-            _input = _obj.find('input[type="hidden"]'),
-            _arr = [],
-            _arr1 = [];
+            _input = _obj.find('input#input_1_5'),
+            _arr = [];
 
         //private methods
         var _addEvents = function () {
@@ -194,7 +193,15 @@
 
                         } else if( _dataRadio.ratePlan.sessionType === 'minute pricing' ) {
 
-                            divRate = '<span>'+ _dataRadio.ratePlan.sessionType +' ( '+ value[0] +' minutes ( ' + value[2] + '/minute )</span>';
+                            var minutes = value[0].replace(/[^0-9]+/g,'');
+
+                            if( minutes > 100000 ) {
+
+                                minutes = minutes/1000000 + 'M'
+
+                            }
+
+                            divRate = '<span>'+ _dataRadio.ratePlan.sessionType +' ( '+ minutes +' minutes ( ' + value[2] + '/minute )</span>';
 
                         }
 
@@ -205,7 +212,6 @@
 
                 for( var key1 in _dataCheckbox  ) {
 
-                    var item1 = _dataRadio[ key1];
                     arr.push(key1)
 
                 }
