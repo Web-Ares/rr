@@ -26,7 +26,8 @@
             _input = _items.find('input'),
             _redirectBtn = _obj.find('.btn_next'),
             _dataRadio = {},
-            _dataCheckbox = {};
+            _dataCheckbox = {},
+            _idItems = {};
 
         //private methods
         var _addEvents = function () {
@@ -37,6 +38,8 @@
                         _getData( $(this) );
                         _writeInSessionStorage();
 
+                        localStorage.setItem('idItems', JSON.stringify(_idItems));
+
                     }
                 } );
 
@@ -45,6 +48,8 @@
 
                         var curItem = $(this),
                             dataSrc = curItem.data('src');
+
+                        _writeAllId();
 
                         window.location.href = dataSrc;
 
@@ -74,20 +79,87 @@
 
                     }
 
+                    _idItems[curItem.attr('name')] = curItem.attr('id');
+
                 } else if( curItem.attr('type') === 'checkbox' ) {
 
                     if (curItem.is(":checked")) {
 
                         _dataCheckbox[curItem.attr('name')] = curItem.attr('value');
+                        _idItems[curItem.attr('name')] = curItem.attr('id');
 
                     } else {
 
                         delete _dataCheckbox[curItem.attr('name')];
+                        delete _idItems[curItem.attr('name')];
+
+                    }
+                }
+
+            },
+            _setCheckedNeedInput = function() {
+
+                if( localStorage.idItems != undefined ) {
+
+                    _input.each( function() {
+
+                        var curItem = $(this);
+
+                        if( curItem.attr('type') === 'checkbox' ) {
+
+                            curItem.prop('checked', false );
+
+                        }
+
+                    } );
+
+                    var allId = JSON.parse( localStorage.idItems );
+
+                    for( var key in allId  ) {
+
+                        var item = allId[ key ];
+
+                        _input.filter('#'+ item +'').prop('checked', true );
+
+                        console.log(item);
 
                     }
 
-
                 }
+
+            },
+            _writeAllId = function() {
+
+                _input.each( function() {
+
+                    var curItem = $(this);
+
+                    if( curItem.is(":checked") ) {
+
+                        if( curItem.attr('type') === 'radio' ) {
+
+                            _idItems[curItem.attr('name')] = curItem.attr('id');
+
+                        } else if( curItem.attr('type') === 'checkbox' ) {
+
+                            if( curItem.is(":checked") ) {
+
+                                _idItems[curItem.attr('name')] = curItem.attr('id');
+
+                            } else {
+
+                                delete _idItems[curItem.attr('name')];
+
+                            }
+
+
+                        }
+
+                    }
+
+                } );
+
+                localStorage.setItem('idItems', JSON.stringify(_idItems));
 
             },
             _writeDataInObjAfterLoad = function() {
@@ -145,8 +217,8 @@
 
                 _obj[0].obj = _self;
                 _addEvents();
+                _setCheckedNeedInput();
                 _writeDataInObjAfterLoad();
-
             };
 
         _init();

@@ -47,10 +47,7 @@
   .choose-data {
 
     .guy_2 {
-      bottom: 0;
-      height: 379px;
-      right: auto;
-      left: 76px;
+      display: none;
     }
     >.clouds {
 
@@ -82,5 +79,30 @@
 
 }
 @media (min-width: $desktop) {
+
+  .choose-data {
+
+    .guy_2 {
+      display: block;
+      bottom: -112px;
+      height: 379px;
+      right: auto;
+      left: 7px;
+    }
+
+  }
+
+}
+@media (min-width: $desktop-wide) {
+
+  .choose-data {
+
+    .guy_2 {
+      bottom: 0;
+      height: 379px;
+      left: 76px;
+    }
+
+  }
 
 }
