@@ -272,7 +272,7 @@
 
                             }
 
-                            divRate = '<span>'+ _dataRadio.ratePlan.sessionType +' ( '+ minutes +' minutes ( ' + value[2] + '/minute )</span>';
+                            divRate = '<span>'+ _dataRadio.ratePlan.sessionType +' ('+ minutes +' minutes (' + value[2] + '/minute)</span>';
 
                         }
 
@@ -301,7 +301,7 @@
 
                 }
 
-                _chosenData.html('You chose ' + divRate + ', ' + item + ' ' + num + ').');
+                _chosenData.html('You chose ' + divRate + ',' + item + ' ' + num + ').');
 
             },
             _writeInHidden = function() {

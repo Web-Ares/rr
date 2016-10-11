@@ -54,7 +54,7 @@
 
                             }
 
-                            divRate = '<span>'+ _dataRadio.ratePlan.sessionType +' ( '+ minutes +' minutes ( ' + value[2] + '/minute )</span>';
+                            divRate = '<span>'+ _dataRadio.ratePlan.sessionType +' ('+ minutes +' minutes (' + value[2] + '/minute)</span>';
 
                         }
 
