@@ -161,7 +161,8 @@
             _dataRadio,
             _dataCheckbox,
             _input = _obj.find('input#input_1_5'),
-            _arr = [];
+            _arr = [],
+            _str = '';
 
         //private methods
         var _addEvents = function () {
@@ -216,8 +217,6 @@
 
                 }
 
-
-
                 if( arr.length > 0 ) {
 
                     if( arr.length == 1 ) {
@@ -234,17 +233,42 @@
 
                 _chosenData.html('You chose ' + divRate + ', ' + item + ' ' + num + ').');
 
-                _input.val( _arr );
-
             },
-            _writeInSearch = function() {
+            _writeInHidden = function() {
 
-                _arr = [];
+                _str = '';
 
-                _arr.push(  ' ' + _dataRadio );
-                _arr.push(  ' ' + _dataCheckbox );
+                for( var key in _dataRadio  ) {
 
-                _input.val( _arr );
+                    var item = _dataRadio[ key ];
+
+                    if( typeof item === 'string' ) {
+
+                        _str += ''+ item +'; '
+
+                    } else if( typeof item === 'object' ) {
+
+                        for( var key1 in item  ) {
+
+                            var item1 = item[ key1 ];
+
+                            _str += ''+ item1 +'; '
+
+                        }
+
+                    }
+
+                }
+
+                for( var key3 in _dataCheckbox  ) {
+
+                    var item3 = _dataCheckbox[ key3 ];
+
+                    _str += ''+ item3 +'; '
+
+                }
+
+                _input.val( _str );
 
             },
             _getSessionData = function() {
@@ -254,7 +278,7 @@
                     _dataRadio = JSON.parse( localStorage.radioChoose );
                     _dataCheckbox = JSON.parse( localStorage.checkboxChoose );
 
-                    _writeInSearch();
+                    _writeInHidden();
                     _writeInBlock();
 
                 } else {
@@ -262,8 +286,6 @@
                     window.location.href = $('body').data('src');
 
                 }
-
-
 
             },
             _init = function () {
