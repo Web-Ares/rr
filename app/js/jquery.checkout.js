@@ -121,8 +121,6 @@
 
                         _input.filter('#'+ item +'').prop('checked', true );
 
-                        console.log(item);
-
                     }
 
                 }
