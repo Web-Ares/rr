@@ -451,7 +451,7 @@
                 _window.on( {
                     load: function() {
 
-                        if( _window.width() >= 768 ) {
+                        if( _window.width() >= 1024 ) {
 
                             _setHeight();
 
@@ -460,7 +460,7 @@
                     },
                     resize: function() {
 
-                        if( _window.width() < 768 ) {
+                        if( _window.width() < 1024 ) {
 
                             _caption.css( {
                                 height: ''

@@ -15,6 +15,12 @@
 
         } );
 
+        $.each( $('.host__offer'), function () {
+
+            new HostOffer( $(this) );
+
+        } );
+
     } );
 
     var ScrollDown = function ( obj ) {
@@ -118,6 +124,41 @@
                 _obj[0].obj = _self;
                 _addEvents();
                 _changeActiveAnchors();
+            };
+
+        _init();
+    };
+
+    var HostOffer = function ( obj ) {
+
+        var _self = this,
+            _obj = obj,
+            _date  = _obj.find('.host__offer-date');
+
+        var _addEvents = function () {
+
+            },
+            _setNeededDay = function(  date, dayOfWeek ) {
+
+                var resultDate = new Date( date.getTime() );
+
+                if( ( new Date().getHours() == 17 ) && ( new Date().getMinutes() > 0 ) ) {
+
+                    resultDate.setDate( (date.getDate() + ( 7 + dayOfWeek - date.getDay() ) % 7 ) + 7 );
+
+                } else {
+
+                    resultDate.setDate( date.getDate() + ( 7 + dayOfWeek - date.getDay() ) % 7 );
+
+                }
+
+                _date.html( ''+ (resultDate.getMonth() + 1) +'/'+ (resultDate.getDate()) +'/'+ (resultDate.getFullYear()) +'' );
+
+            },
+            _init = function() {
+                _obj[0].obj = _self;
+                _addEvents();
+                _setNeededDay( new Date(), 5 );
             };
 
         _init();

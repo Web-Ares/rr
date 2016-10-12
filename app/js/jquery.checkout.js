@@ -15,6 +15,12 @@
 
         } );
 
+        $.each( $('.plans'), function () {
+
+            new DatePlan( $(this) );
+
+        } );
+
     } );
 
     var ChooseData = function (obj) {
@@ -260,7 +266,7 @@
 
                         if( _dataRadio.ratePlan.sessionType === 'session pricing' ) {
 
-                            divRate = '<span>'+ _dataRadio.ratePlan.sessionType +' ( '+ value[0] +' sessions )</span>';
+                            divRate = '<span>'+ _dataRadio.ratePlan.sessionType +' ('+ value[0] +' sessions)</span>';
 
                         } else if( _dataRadio.ratePlan.sessionType === 'minute pricing' ) {
 
@@ -301,7 +307,7 @@
 
                 }
 
-                _chosenData.html('You chose ' + divRate + ',' + item + ' ' + num + ').');
+                _chosenData.html('You chose ' + divRate + ', ' + item + ' ' + num + ').');
 
             },
             _writeInHidden = function() {
@@ -363,6 +369,60 @@
                 _obj[0].obj = _self;
                 _addEvents();
                 _getSessionData();
+            };
+
+        _init();
+    };
+
+    var DatePlan = function (obj) {
+
+        //private properties
+        var _self = this,
+            _obj = obj,
+            _items = _obj.find('.plans__item'),
+            _radio = _obj.find('input[type="radio"]'),
+            _window = $(window);
+
+        //private methods
+        var _addEvents = function () {
+
+                _window.on( {
+                    load: function() {
+
+                        _setActiveClass();
+
+                    }
+                } );
+
+                _radio.on( {
+                    change: function() {
+
+                        var curItem = $(this),
+                            parent = curItem.parents('.plans__item');
+
+                        if( !( parent.hasClass('active') ) ) {
+
+                            _items.removeClass('active');
+                            parent.addClass('active');
+
+                        }
+
+                    }
+                } );
+
+            },
+            _setActiveClass = function() {
+
+                var activeRadio = _radio.filter(':checked'),
+                    parent = activeRadio.parents('.plans__item');
+
+                    parent.addClass('active');
+
+            },
+            _init = function () {
+
+                _obj[0].obj = _self;
+                _addEvents();
             };
 
         _init();

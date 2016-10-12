@@ -3,11 +3,20 @@
 }
 .plans__item {
   max-width: 500px;
-  padding: 38px 0 22px;
+  padding: 27px 0 22px;
   margin: 0 auto 40px;
   font-size: 15px;
   line-height: 18px;
   background: #ffffff;
+  border: 1px solid transparent;
+  -webkit-transition: box-shadow 0.3s ease, border 0.3s ease, color 0.3s ease;
+  transition: box-shadow 0.3s ease, border 0.3s ease, color 0.3s ease;
+
+  &.active {
+    border-color: #349f4e;
+    box-shadow: 0 0 10px 0 rgba(52,159,78,0.4);
+  }
+
 }
 .plans__head {
   padding: 0 30px;
@@ -29,7 +38,7 @@
   @include flex-wrap(wrap);
   @include flex-direction(row);
   @include align-items(flex-start);
-  @include justify-content(flex-start);
+  @include justify-content(space-between);
 
   &.plans__list_caption {
     padding: 10px 10px 10px 35px;
@@ -38,19 +47,22 @@
 
     .plans__list-col,
     >span {
-      width: 33.333%;
-      padding: 0 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 50%;
+      padding: 0 5px;
     }
 
   }
-  &.plans__list-row_2 {
+  &.plans__list-row_4 {
 
     .plans__list-col,
     >span {
-      width: 42%;
-      padding: 0 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 33.333%;
+      padding: 0 5px;
     }
-
   }
 
 }
@@ -71,8 +83,79 @@
   }
 
 }
+.plans__old-price {
+  display: none;
+}
+.plans__list-col_del {
+  display: none;
+}
 
 @media (min-width: $tablet-portrait) {
+
+  .plans__list-row {
+
+    &.plans__list_caption {
+      padding: 10px 33px 7px 60px;
+
+      .plans__list-col {
+        min-height: 30px;
+      }
+
+    }
+    &.plans__list-row_3 {
+
+      .plans__list-col,
+      >span {
+        width: 31%;
+        padding: 0 7px;
+
+        &:nth-child(2) {
+          width: 33%;
+        }
+
+      }
+
+    }
+    &.plans__list-row_4 {
+
+      .plans__list-col,
+      >span {
+        width: 28%;
+        padding: 0 5px;
+
+        &:nth-child(2) {
+          width: 20%;
+        }
+        &:nth-child(3) {
+          width: 20%;
+        }
+
+      }
+
+    }
+
+  }
+  .plans__head {
+    padding: 0 33px;
+  }
+  .plans__list-radio {
+
+    >div {
+      padding: 14px 31px 14px 28px;
+    }
+
+  }
+  .plans__old-price {
+    display: block;
+    color: #d70000;
+    @include main-font1();
+  }
+  .plans__list-col_del {
+    display: block;
+  }
+
+}
+@media (min-width: $desktop) {
 
   .plans {
     @include flexbox();
@@ -85,46 +168,5 @@
     width: 47.9%;
     margin: 0;
   }
-  .plans__list-row {
-
-    &.plans__list_caption {
-      padding: 10px 53px 7px 78px;
-
-      .plans__list-col {
-        min-height: 30px;
-      }
-
-    }
-    &.plans__list-row_3 {
-
-      .plans__list-col,
-      >span {
-        padding: 0 13px;
-      }
-
-    }
-    &.plans__list-row_2 {
-
-      .plans__list-col,
-      >span {
-        padding: 0 13px;
-      }
-
-    }
-
-  }
-  .plans__head {
-    padding: 0 45px;
-  }
-  .plans__list-radio {
-
-    >div {
-      padding: 14px 55px 14px 53px;
-    }
-
-  }
-
-}
-@media (min-width: $desktop) {
 
 }

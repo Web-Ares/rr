@@ -42,7 +42,7 @@
 
                         if( _dataRadio.ratePlan.sessionType === 'session pricing' ) {
 
-                            divRate = '<span>'+ _dataRadio.ratePlan.sessionType +' ( '+ value[0] +' sessions )</span>';
+                            divRate = '<span>'+ _dataRadio.ratePlan.sessionType +' ('+ value[0] +' sessions)</span>';
 
                         } else if( _dataRadio.ratePlan.sessionType === 'minute pricing' ) {
 
