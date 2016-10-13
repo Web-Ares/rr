@@ -410,6 +410,23 @@
                     }
                 } );
 
+                _items.on( {
+                    click: function() {
+
+                        var curItem = $(this),
+                            firstRadio = curItem.find('input[type="radio"]:first');
+
+                        if( !( curItem.hasClass('active') ) ) {
+
+                            _items.removeClass('active');
+                            curItem.addClass('active');
+                            firstRadio.trigger('click');
+
+                        }
+
+                    }
+                } );
+
             },
             _setActiveClass = function() {
 

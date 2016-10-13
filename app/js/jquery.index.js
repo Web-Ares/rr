@@ -142,7 +142,7 @@
 
                 var resultDate = new Date( date.getTime() );
 
-                if( ( new Date().getHours() == 17 ) && ( new Date().getMinutes() > 0 ) ) {
+                if( ( new Date().getHours() >= 17 ) && ( new Date().getMinutes() > 0 ) && ( date.getDay() == dayOfWeek ) ) {
 
                     resultDate.setDate( (date.getDate() + ( 7 + dayOfWeek - date.getDay() ) % 7 ) + 7 );
 

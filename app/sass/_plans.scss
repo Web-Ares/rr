@@ -8,6 +8,7 @@
   font-size: 15px;
   line-height: 18px;
   background: #ffffff;
+  cursor: pointer;
   border: 1px solid transparent;
   -webkit-transition: box-shadow 0.3s ease, border 0.3s ease, color 0.3s ease;
   transition: box-shadow 0.3s ease, border 0.3s ease, color 0.3s ease;
@@ -81,6 +82,22 @@
     }
 
   }
+  .nice-radio {
+    padding: 0;
+
+    label {
+      padding: 10px 10px 10px 35px;
+
+      &:before {
+        top: 15px;
+        left: 16px;
+      }
+      &:after {
+        top: 9px;
+        left: 10px;
+      }
+    }
+  }
 
 }
 .plans__old-price {
@@ -142,6 +159,21 @@
 
     >div {
       padding: 14px 31px 14px 28px;
+    }
+    .nice-radio {
+
+      label {
+        padding: 16px 29px 16px 59px;
+
+        &:before {
+          top: 21px;
+          left: 33px;
+        }
+        &:after {
+          top: 15px;
+          left: 27px;
+        }
+      }
     }
 
   }
