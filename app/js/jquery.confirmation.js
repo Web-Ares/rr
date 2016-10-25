@@ -108,7 +108,7 @@
 
                 if( divRate == '' ) {
 
-                    _chosenData.html('You chose ' + item + item2 + num + '.');
+                    _chosenData.html('You chose ' + item + 'ports: ' + item2 + num + '.');
 
                 } else {
 
