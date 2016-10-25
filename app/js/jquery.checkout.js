@@ -43,22 +43,25 @@
                 _input.on( {
                     click: function() {
 
-                        _getData( $(this) );
-                        _writeInSessionStorage();
+                        if( !($(this).attr('type') === 'text') ) {
 
-                        localStorage.setItem('idItems', JSON.stringify(_idItems));
+                            _getData( $(this) );
+                            _writeInSessionStorage();
+
+                            localStorage.setItem('idItems', JSON.stringify(_idItems));
+
+                        }
 
                     },
                     keyup: function() {
 
                         if( $(this).attr('type') === 'text' ) {
 
-                            //_getData( $(this) );
-                            //_writeInSessionStorage();
-                            //
-                            //localStorage.setItem('idItems', JSON.stringify(_idItems));
-                            //localStorage.setItem('valueInput', JSON.stringify(_valueInputItems));
+                            _getData( $(this) );
+                            _writeInSessionStorage();
 
+                            localStorage.setItem('idItems', JSON.stringify(_idItems));
+                            localStorage.setItem('valueInput', JSON.stringify(_valueInputItems));
 
                         }
 
@@ -116,23 +119,22 @@
                         delete _idItems[curItem.attr('name')];
 
                     }
+                } else if( curItem.attr('type') === 'text' ) {
+
+                    if ( curItem.val() != '' ) {
+
+                        _dataInput[curItem.attr('name')] = curItem.val();
+                        _idItems[curItem.attr('name')] = curItem.attr('id');
+                        _valueInputItems[curItem.attr('id')] = curItem.val();
+
+                    } else {
+
+                        delete _dataInput[curItem.attr('name')];
+                        delete _idItems[curItem.attr('name')];
+                        delete _valueInputItems[curItem.attr('id')];
+
+                    }
                 }
-                //else if( curItem.attr('type') === 'text' ) {
-                //
-                //    if ( curItem.val() != '' ) {
-                //
-                //        _dataInput[curItem.attr('name')] = curItem.val();
-                //        _idItems[curItem.attr('name')] = curItem.attr('id');
-                //        _valueInputItems[curItem.attr('id')] = curItem.val();
-                //
-                //    } else {
-                //
-                //        delete _dataInput[curItem.attr('name')];
-                //        delete _idItems[curItem.attr('name')];
-                //        delete _valueInputItems[curItem.attr('id')];
-                //
-                //    }
-                //}
 
             },
             _setCheckedNeedInput = function() {
@@ -155,28 +157,39 @@
 
                     } );
 
-                    var allId = JSON.parse( localStorage.idItems);
+                    var allId = JSON.parse( localStorage.idItems),
 
-                        //valueInput = JSON.parse( localStorage.valueInput );
+                        valueInput = JSON.parse( localStorage.valueInput );
 
                     for( var key in allId  ) {
 
                         var item = allId[ key ];
 
-                        _input.filter('#'+ item +'').prop('checked', true );
+                        _input.each( function() {
+
+                            var curItem = $(this);
+
+                            curItem.filter('#'+ item +'').prop('checked', true );
+
+                            console.log(item)
+
+                            if( curItem.attr('type') === 'text' ) {
+
+                                for( var key2 in valueInput  ) {
+
+                                    var item1 = valueInput[ key2 ];
+
+                                    curItem.filter('#'+ item +'').val( item1 );
+                                }
+
+                            }
+
+                        } );
+
 
 
 
                     }
-
-                    ////for( var key1 in valueInput  ) {
-                    //
-                    //var item1 = valueInput[ key ];
-                    //
-                    //_input.filter('#'+ item +'').val( item1 );
-                    //
-                    ////}
-
 
                 }
 
@@ -207,23 +220,24 @@
 
 
                         }
-                        //else if( curItem.attr('type') === 'text' ) {
-                        //
-                        //    if( curItem.val() != '' ) {
-                        //
-                        //        _idItems[curItem.attr('name')] = curItem.attr('id');
-                        //        _valueInputItems[curItem.attr('id')] = curItem.val();
-                        //
-                        //    } else {
-                        //
-                        //        delete _idItems[curItem.attr('name')];
-                        //        delete _valueInputItems[curItem.attr('id')];
-                        //
-                        //    }
-                        //
-                        //    localStorage.setItem('valueInput', JSON.stringify(_valueInputItems));
-                        //
-                        //}
+
+                    }
+
+                    if( curItem.attr('type') === 'text' ) {
+
+                        if( curItem.val() != '' ) {
+
+                            _idItems[curItem.attr('name')] = curItem.attr('id');
+                            _valueInputItems[curItem.attr('id')] = curItem.val();
+
+                        } else {
+
+                            delete _idItems[curItem.attr('name')];
+                            delete _valueInputItems[curItem.attr('id')];
+
+                        }
+
+                        localStorage.setItem('valueInput', JSON.stringify(_valueInputItems));
 
                     }
 
@@ -274,22 +288,23 @@
 
                     }
 
-                    //if( curItem.attr('type') === 'text' ) {
-                    //
-                    //    if ( curItem.val() != '' ) {
-                    //
-                    //        _dataInput[curItem.attr('name')] = curItem.val();
-                    //
-                    //    } else {
-                    //
-                    //        delete _dataInput[curItem.attr('name')];
-                    //
-                    //    }
-                    //}
+                    if( curItem.attr('type') === 'text' ) {
+
+                        if ( curItem.val() != '' ) {
+
+                            _dataInput[curItem.attr('name')] = curItem.val();
+
+                        } else {
+
+                            delete _dataInput[curItem.attr('name')];
+
+                        }
+                    }
 
                 } );
 
                 _writeInSessionStorage();
+                _writeAllId();
 
             },
             _writeInSessionStorage = function() {
@@ -298,11 +313,6 @@
                 localStorage.setItem('checkboxChoose', JSON.stringify(_dataCheckbox));
                 localStorage.setItem('inputValue', JSON.stringify(_dataInput));
 
-
-                console.log(_dataRadio)
-                console.log(_dataCheckbox)
-                console.log(_dataInput)
-
             },
             _init = function () {
 
@@ -310,6 +320,7 @@
                 _addEvents();
                 _setCheckedNeedInput();
                 _writeDataInObjAfterLoad();
+
             };
 
         _init();
@@ -403,20 +414,20 @@
 
                 var item2 = '';
 
-                //for( var key2 in _dataInput  ) {
-                //
-                //    if (_dataInput.hasOwnProperty(key2)) {
-                //
-                //        item2 = _dataInput[ key2 ]  + ' ';
-                //
-                //    } else {
-                //
-                //        item2 = '';
-                //
-                //    }
-                //
-                //
-                //}
+                for( var key2 in _dataInput  ) {
+
+                    if (_dataInput.hasOwnProperty(key2)) {
+
+                        item2 = _dataInput[ key2 ]  + ' ';
+
+                    } else {
+
+                        item2 = '';
+
+                    }
+
+
+                }
 
                 if( divRate == '' ) {
 
@@ -465,21 +476,21 @@
 
                 var item4 = '';
 
-                //for( var key4 in _dataInput  ) {
-                //
-                //    if (_dataInput.hasOwnProperty(key4)) {
-                //
-                //        item4 = _dataInput[ key4 ];
-                //
-                //    } else {
-                //
-                //        item4 = '';
-                //
-                //    }
-                //
-                //    _str += ''+ item4 +'; '
-                //
-                //}
+                for( var key4 in _dataInput  ) {
+
+                    if (_dataInput.hasOwnProperty(key4)) {
+
+                        item4 = _dataInput[ key4 ];
+
+                    } else {
+
+                        item4 = '';
+
+                    }
+
+                    _str += ''+ item4 +'; '
+
+                }
 
                 _input.val( _str );
 
