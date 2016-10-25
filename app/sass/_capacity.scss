@@ -1,0 +1,62 @@
+.capacity {
+  position: relative;
+  padding: 65px 0 30px;
+  background: #fff;
+
+  .clouds {
+
+    &.clouds_2 {
+      top: -5%;
+    }
+
+  }
+
+}
+.capacity__field {
+  padding-top: 40px;
+  max-width: 258px;
+  margin: 0 auto;
+  text-align: center;
+
+  input[type="text"].site__input {
+    margin-bottom: 31px;
+  }
+
+}
+.capacity__price {
+  margin: 0 0 23px;
+  font-size: 15px;
+  line-height: 20px;
+  color: #5b5b5b;
+}
+.capacity__description {
+  max-width: 350px;
+  margin: 0 auto;
+  font-size: 20px;
+  line-height: 32px;
+  color: #349f4e;
+  text-align: center;
+  @include main-font2();
+
+  span {
+    display: block;
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .capacity {
+    padding: 65px 0 125px;
+
+    .clouds {
+
+      &.clouds_2 {
+        top: -8%;
+      }
+
+    }
+
+  }
+
+}

@@ -12,6 +12,9 @@
   }
 
 }
+.location_1 {
+  background: none;
+}
 .location__radio {
   padding: 13px 0 0;
 
@@ -104,11 +107,6 @@
 @media (min-width: $tablet-portrait) {
 
   .location {
-    //@include flexbox();
-    //@include flex-wrap(wrap);
-    //@include flex-direction(row);
-    //@include align-items(stretch);
-    //@include justify-content(space-between);
 
     .clouds {
 
@@ -118,6 +116,9 @@
 
     }
 
+  }
+  .location_1 {
+    padding: 3px 0 98px;
   }
   .location__radio {
     @include flexbox();

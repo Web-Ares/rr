@@ -19,6 +19,7 @@
             _chosenData = _obj.find('.confirmation__data-paste'),
             _dataRadio,
             _dataCheckbox,
+            _dataInput,
             _str = '';
 
         //private methods
@@ -30,7 +31,7 @@
 
                 for( var key in _dataRadio  ) {
 
-                    var item = _dataRadio[ key ];
+                    var item = _dataRadio[ key ] + ', ';
 
                 }
 
@@ -42,7 +43,7 @@
 
                         if( _dataRadio.ratePlan.sessionType === 'session pricing' ) {
 
-                            divRate = '<span>'+ _dataRadio.ratePlan.sessionType +' ('+ value[0] +' sessions)</span>';
+                            divRate = '<span>'+ _dataRadio.ratePlan.sessionType +' ('+ value[0] +' sessions)</span>' + ', ';
 
                         } else if( _dataRadio.ratePlan.sessionType === 'minute pricing' ) {
 
@@ -54,12 +55,18 @@
 
                             }
 
-                            divRate = '<span>'+ _dataRadio.ratePlan.sessionType +' ('+ minutes +' minutes (' + value[2] + '/minute)</span>';
+                            divRate = '<span>'+ _dataRadio.ratePlan.sessionType +' ('+ minutes +' minutes (' + value[2] + '/minute)</span>' + ', ';
 
                         }
 
 
                     } );
+
+                }
+
+                if( divRate == '' ) {
+
+                    divRate = '';
 
                 }
 
@@ -83,7 +90,31 @@
 
                 }
 
-                _chosenData.html('You chose ' + divRate + ', ' + item + ' ' + num + ').');
+                var item2 = '';
+
+                for( var key2 in _dataInput  ) {
+
+                    if (_dataInput.hasOwnProperty(key2)) {
+
+                        item2 = _dataInput[ key2 ] + ' ';
+
+                    } else {
+
+                        item2 = '';
+
+                    }
+
+                }
+
+                if( divRate == '' ) {
+
+                    _chosenData.html('You chose ' + item + item2 + num + '.');
+
+                } else {
+
+                    _chosenData.html('You chose ' + divRate + item + num + ').');
+
+                }
 
             },
             _getSessionData = function() {
@@ -92,6 +123,7 @@
 
                     _dataRadio = JSON.parse( localStorage.radioChoose );
                     _dataCheckbox = JSON.parse( localStorage.checkboxChoose );
+                    _dataInput = JSON.parse( localStorage.inputValue );
 
                     _writeInBlock();
 

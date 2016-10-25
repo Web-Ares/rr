@@ -42,8 +42,13 @@
   transform: rotate(-6deg);
 }
 .host__head {
-  max-width: 750px;
-  margin: 0 auto;
+  text-align: center;
+
+  >div {
+    display: inline-block;
+    vertical-align: top;
+  }
+
 }
 .host__clients {
   margin: 0 auto 30px;
@@ -101,6 +106,20 @@
     }
     .host__clients {
       width: 46%;
+    }
+
+  }
+  .host_2 {
+
+    .host__items {
+
+      .site__list {
+        width: 66%;
+      }
+      .host__clients {
+        width: 34%;
+      }
+
     }
 
   }

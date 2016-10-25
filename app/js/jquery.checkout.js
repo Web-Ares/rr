@@ -33,7 +33,9 @@
             _redirectBtn = _obj.find('.btn_next'),
             _dataRadio = {},
             _dataCheckbox = {},
-            _idItems = {};
+            _dataInput = {},
+            _idItems = {},
+            _valueInputItems = {};
 
         //private methods
         var _addEvents = function () {
@@ -45,6 +47,20 @@
                         _writeInSessionStorage();
 
                         localStorage.setItem('idItems', JSON.stringify(_idItems));
+
+                    },
+                    keyup: function() {
+
+                        if( $(this).attr('type') === 'text' ) {
+
+                            //_getData( $(this) );
+                            //_writeInSessionStorage();
+                            //
+                            //localStorage.setItem('idItems', JSON.stringify(_idItems));
+                            //localStorage.setItem('valueInput', JSON.stringify(_valueInputItems));
+
+
+                        }
 
                     }
                 } );
@@ -89,7 +105,7 @@
 
                 } else if( curItem.attr('type') === 'checkbox' ) {
 
-                    if (curItem.is(":checked")) {
+                    if ( curItem.is(":checked") ) {
 
                         _dataCheckbox[curItem.attr('name')] = curItem.attr('value');
                         _idItems[curItem.attr('name')] = curItem.attr('id');
@@ -101,6 +117,22 @@
 
                     }
                 }
+                //else if( curItem.attr('type') === 'text' ) {
+                //
+                //    if ( curItem.val() != '' ) {
+                //
+                //        _dataInput[curItem.attr('name')] = curItem.val();
+                //        _idItems[curItem.attr('name')] = curItem.attr('id');
+                //        _valueInputItems[curItem.attr('id')] = curItem.val();
+                //
+                //    } else {
+                //
+                //        delete _dataInput[curItem.attr('name')];
+                //        delete _idItems[curItem.attr('name')];
+                //        delete _valueInputItems[curItem.attr('id')];
+                //
+                //    }
+                //}
 
             },
             _setCheckedNeedInput = function() {
@@ -115,11 +147,17 @@
 
                             curItem.prop('checked', false );
 
+                        } else if( curItem.attr('type') === 'text' ) {
+
+                            curItem.val('');
+
                         }
 
                     } );
 
-                    var allId = JSON.parse( localStorage.idItems );
+                    var allId = JSON.parse( localStorage.idItems);
+
+                        //valueInput = JSON.parse( localStorage.valueInput );
 
                     for( var key in allId  ) {
 
@@ -127,7 +165,18 @@
 
                         _input.filter('#'+ item +'').prop('checked', true );
 
+
+
                     }
+
+                    ////for( var key1 in valueInput  ) {
+                    //
+                    //var item1 = valueInput[ key ];
+                    //
+                    //_input.filter('#'+ item +'').val( item1 );
+                    //
+                    ////}
+
 
                 }
 
@@ -158,12 +207,30 @@
 
 
                         }
+                        //else if( curItem.attr('type') === 'text' ) {
+                        //
+                        //    if( curItem.val() != '' ) {
+                        //
+                        //        _idItems[curItem.attr('name')] = curItem.attr('id');
+                        //        _valueInputItems[curItem.attr('id')] = curItem.val();
+                        //
+                        //    } else {
+                        //
+                        //        delete _idItems[curItem.attr('name')];
+                        //        delete _valueInputItems[curItem.attr('id')];
+                        //
+                        //    }
+                        //
+                        //    localStorage.setItem('valueInput', JSON.stringify(_valueInputItems));
+                        //
+                        //}
 
                     }
 
                 } );
 
                 localStorage.setItem('idItems', JSON.stringify(_idItems));
+
 
             },
             _writeDataInObjAfterLoad = function() {
@@ -204,7 +271,21 @@
 
                         }
 
+
                     }
+
+                    //if( curItem.attr('type') === 'text' ) {
+                    //
+                    //    if ( curItem.val() != '' ) {
+                    //
+                    //        _dataInput[curItem.attr('name')] = curItem.val();
+                    //
+                    //    } else {
+                    //
+                    //        delete _dataInput[curItem.attr('name')];
+                    //
+                    //    }
+                    //}
 
                 } );
 
@@ -215,6 +296,12 @@
 
                 localStorage.setItem('radioChoose', JSON.stringify(_dataRadio));
                 localStorage.setItem('checkboxChoose', JSON.stringify(_dataCheckbox));
+                localStorage.setItem('inputValue', JSON.stringify(_dataInput));
+
+
+                console.log(_dataRadio)
+                console.log(_dataCheckbox)
+                console.log(_dataInput)
 
             },
             _init = function () {
@@ -236,6 +323,7 @@
             _chosenData = _obj.find('.order__chosen-data span'),
             _dataRadio,
             _dataCheckbox,
+            _dataInput,
             _input = _obj.find('input#input_1_5'),
             _arr = [],
             _str = '';
@@ -254,7 +342,7 @@
 
                 for( var key in _dataRadio  ) {
 
-                    var item = _dataRadio[ key ];
+                    var item = _dataRadio[ key ] + ', ';
 
                 }
 
@@ -266,7 +354,7 @@
 
                         if( _dataRadio.ratePlan.sessionType === 'session pricing' ) {
 
-                            divRate = '<span>'+ _dataRadio.ratePlan.sessionType +' ('+ value[0] +' sessions)</span>';
+                            divRate = '<span>'+ _dataRadio.ratePlan.sessionType +' ('+ value[0] +' sessions)</span>' + ', ';
 
                         } else if( _dataRadio.ratePlan.sessionType === 'minute pricing' ) {
 
@@ -278,12 +366,18 @@
 
                             }
 
-                            divRate = '<span>'+ _dataRadio.ratePlan.sessionType +' ('+ minutes +' minutes (' + value[2] + '/minute)</span>';
+                            divRate = '<span>'+ _dataRadio.ratePlan.sessionType +' ('+ minutes +' minutes (' + value[2] + '/minute)</span>' + ', ';
 
                         }
 
 
                     } );
+
+                }
+
+                if( divRate == '' ) {
+
+                    divRate = '';
 
                 }
 
@@ -307,7 +401,32 @@
 
                 }
 
-                _chosenData.html('You chose ' + divRate + ', ' + item + ' ' + num + ').');
+                var item2 = '';
+
+                //for( var key2 in _dataInput  ) {
+                //
+                //    if (_dataInput.hasOwnProperty(key2)) {
+                //
+                //        item2 = _dataInput[ key2 ]  + ' ';
+                //
+                //    } else {
+                //
+                //        item2 = '';
+                //
+                //    }
+                //
+                //
+                //}
+
+                if( divRate == '' ) {
+
+                    _chosenData.html('You chose ' + item + item2 + num + '.');
+
+                } else {
+
+                    _chosenData.html('You chose ' + divRate + item + num + ').');
+
+                }
 
             },
             _writeInHidden = function() {
@@ -344,6 +463,24 @@
 
                 }
 
+                var item4 = '';
+
+                //for( var key4 in _dataInput  ) {
+                //
+                //    if (_dataInput.hasOwnProperty(key4)) {
+                //
+                //        item4 = _dataInput[ key4 ];
+                //
+                //    } else {
+                //
+                //        item4 = '';
+                //
+                //    }
+                //
+                //    _str += ''+ item4 +'; '
+                //
+                //}
+
                 _input.val( _str );
 
             },
@@ -353,6 +490,7 @@
 
                     _dataRadio = JSON.parse( localStorage.radioChoose );
                     _dataCheckbox = JSON.parse( localStorage.checkboxChoose );
+                    _dataInput = JSON.parse( localStorage.inputValue );
 
                     _writeInHidden();
                     _writeInBlock();
