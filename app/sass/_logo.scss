@@ -1,9 +1,9 @@
 .logo {
   position: absolute;
-  top: 33px;
+  top: 16px;
   left: 50%;
-  width: 175px;
-  height: 57px;
+  width: 123px;
+  height: 39px;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 
@@ -19,5 +19,12 @@
 
 }
 @media (min-width: $desktop) {
+
+  .logo {
+    top: 5px;
+    left: 36px;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
 
 }

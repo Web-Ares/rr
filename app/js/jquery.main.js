@@ -27,6 +27,18 @@
 
         } );
 
+        $.each( $('.site__header'), function () {
+
+            new Menu( $(this) );
+
+        } );
+
+        $('.popup').each( function() {
+
+            new Popup( $(this) );
+
+        } );
+
     } );
 
     var CloudsAnimated = function (obj) {
@@ -512,6 +524,221 @@
                 _obj[0].obj = _self;
                 _addEvents();
             };
+
+        _init();
+    };
+
+    var Menu = function (obj) {
+
+        //private properties
+        var _self = this,
+            _obj = obj,
+            _window = $( window),
+            _menuBtn = _obj.find('.site__header__btn'),
+            _menuItems = _obj.find('.site__header-menu'),
+            _html = $('html');
+
+        //private methods
+        var _closeMenu = function() {
+
+                _obj.removeClass( 'opened' );
+
+                _html.css( {
+                    'overflow-y': 'auto'
+                } );
+
+                _menuItems.attr( 'style', '' );
+
+            },
+            _onEvents = function () {
+
+                _window.on( {
+                    scroll: function () {
+
+                        if( _window.scrollTop() > 0 ) {
+
+                            _obj.addClass('fixed');
+
+                        } else {
+
+                            _obj.removeClass('fixed');
+
+                        }
+                    },
+                    resize: function() {
+
+
+
+                    }
+
+                } );
+
+                _menuBtn.on( {
+
+                    click: function () {
+
+                        if( _obj.hasClass( 'opened' ) ) {
+
+                            _closeMenu();
+
+
+                        } else {
+
+                            _openMenu();
+
+                        }
+
+                        return false;
+
+                    }
+
+                } );
+
+            },
+            _openMenu = function() {
+
+                _obj.addClass( 'opened' );
+
+                _html.css( {
+                    'overflow-y': 'hidden'
+                } );
+
+            },
+            _init = function () {
+
+                _onEvents();
+                _obj[0].obj = _self;
+
+                if( _window.scrollTop() > _obj.innerHeight()/2 ) {
+
+                    _obj.addClass('fixed');
+
+                } else {
+
+                    _obj.removeClass('fixed');
+
+                }
+
+            };
+
+
+        _init();
+    };
+
+    var Popup = function( obj ){
+
+        //private properties
+        var _self = this,
+            _popupPadding = 40,
+            _btnShow =  $( '.popup__open' ),
+            _obj = obj,
+            _btnClose = _obj.find( '.popup__close, .popup__cancel' ),
+            _wrap = _obj.find( '.popup__wrap' ),
+            _contents = _obj.find( '.popup__content' ),
+            _scrollConteiner = $( 'html' ),
+            _window = $( window ),
+            _timer = setTimeout( function(){}, 1 );
+
+        //private methods
+        var _centerWrap = function(){
+                if ( _window.height() - ( _popupPadding * 2 ) - _wrap.height() > 0 ) {
+                    _wrap.css( { top: ( ( _window.height() - ( _popupPadding * 2 ) ) - _wrap.height() ) / 2 } );
+                } else {
+                    _wrap.css( { top: 0 } );
+                }
+            },
+            _getScrollWidth = function (){
+                var scrollDiv = document.createElement( 'div'),
+                    scrollBarWidth;
+
+                scrollDiv.className = 'popup__scrollbar-measure';
+
+                document.body.appendChild( scrollDiv );
+
+                scrollBarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+
+                document.body.removeChild(scrollDiv);
+
+                return scrollBarWidth;
+            },
+            _hide = function(){
+                _obj.css( {
+                    overflowY: 'hidden'
+                } );
+                _scrollConteiner.css( {
+                    overflowY: 'auto',
+                    paddingRight: 0
+                } );
+
+                _obj.removeClass( 'popup_opened' );
+                _obj.addClass( 'popup_hide' );
+
+                _timer = setTimeout( function(){
+
+                    _obj.css ({
+                        overflowY: 'auto'
+                    });
+
+                    _obj.removeClass( 'popup_hide' );
+                }, 300 );
+
+            },
+            _init = function(){
+                _obj[ 0 ].obj = _self;
+                _onEvents();
+            },
+            _onEvents = function(){
+                _window.on( {
+                    resize: function(){
+                        _centerWrap();
+                    }
+                } );
+                _btnShow.on( {
+                    click: function(){
+                        _show( $( this ).attr( 'data-popup' ) );
+                        return false;
+                    }
+                } );
+                _wrap.on( {
+                    click: function( e ){
+                        e.stopPropagation();
+                    }
+                } );
+                _obj.on( {
+                    click: function(){
+                        _hide();
+                        return false;
+                    }
+                } );
+                _btnClose.on( {
+                    click: function(){
+                        _hide();
+                        return false;
+                    }
+                } );
+            },
+            _show = function( className ){
+                _setPopupContent( className );
+
+                _scrollConteiner.css( {
+                    overflowY: 'hidden',
+                    paddingRight: _getScrollWidth()
+                } );
+                _obj.addClass( 'popup_opened' );
+                _centerWrap();
+
+            },
+            _setPopupContent = function( className ){
+                var curContent = _contents.filter( '.popup__' + className );
+
+                _contents.css( { display: 'none' } );
+                curContent.css( { display: 'block' } );
+            };
+
+        //public properties
+
+        //public methods
+
 
         _init();
     };
