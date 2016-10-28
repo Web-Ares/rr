@@ -39,6 +39,7 @@
 
         } );
 
+
         $(document).bind('gform_confirmation_loaded', function(){
 
             $('.popup__request').addClass('popup__request_no-bg');
