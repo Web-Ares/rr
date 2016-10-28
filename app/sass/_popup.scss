@@ -12,6 +12,8 @@
   background: $popup-back;
   text-align: center;
   transition: opacity 500ms ease-in-out;
+  color: #626262;
+  @include main-font1();
 
   &_opened {
     opacity: 1;
@@ -28,23 +30,24 @@
   &__wrap {
     position: relative;
     z-index: 2;
-    width: 527px;
+    max-width: 800px;
     margin: 0 auto;
-    padding-bottom: 40px;
+    padding: 0 20px 40px;
   }
 
   &__content {
     display: none;
     text-align: left;
     padding: 20px 0;
+    background: #fff;
   }
 
   &__close {
     position: absolute;
-    top: 17px;
-    width: 15px;
-    height: 15px;
-    right: 18px;
+    top: -36px;
+    width: 30px;
+    height: 30px;
+    right: 15px;
     text-indent: -5000px;
     cursor: pointer;
 
@@ -81,6 +84,185 @@
     top: -9999px;
     width: 100px;
     height: 100px;
+  }
+
+}
+.popup__request {
+  overflow: hidden;
+  padding: 40px 30px;
+  text-align: center;
+  background-size: 158px 235px;
+
+  .gform_heading {
+
+    .gform_title {
+      position: relative;
+      margin: 0 0 31px;
+      font-size: 30px;
+      line-height: 40px;
+      text-transform: uppercase;
+      color: #349f4e;
+      @include main-font2();
+    }
+    .gform_description {
+      display: block;
+      margin: 0 0 30px;
+    }
+
+  }
+  .gfield_description,
+  .validation_message,
+  .validation_error {
+    display: none;
+    margin: 0 0 10px;
+  }
+  .gform_fields {
+
+    input[type="text"],
+    input[type="password"],
+    textarea,
+    input[type="email"],
+    input[type="tel"],
+    input[type="phone"],
+    input[type="number"] {
+      display: inline-block;
+      vertical-align: top;
+      width: 100%;
+      max-width: 400px;
+      height: 42px;
+      border: 1px solid #349f4e;
+      border-radius: 2px;
+      padding: 10px 15px;
+      margin: 0 0 9px;
+      color: rgba(98,98,98,1);
+      font-size: 17px;
+      line-height: 17px;
+      @include main-font1();
+      -webkit-transition: border 0.3s ease;
+      transition: border 0.3s ease;
+
+      &:focus {
+        border-color: #1f5c2c;
+      }
+      &.not-valid,
+      &.not-touched {
+        border-color: #a2000f;
+      }
+
+    }
+    textarea {
+      height: 150px;
+    }
+
+  }
+  .gfield {
+    max-width: 400px;
+    margin: 0 auto 20px;
+  }
+  .gfield_label {
+    display: block;
+    margin: 0 0 10px;
+    font-size: 16px;
+    line-height: 20px;
+    color: #626262;
+    @include main-font1();
+    text-align: left;
+  }
+  .gform_body {
+    margin: 0 0 30px;
+  }
+  .gform_footer {
+    //padding: 25px 0 34px;
+  }
+  .gfield_error {
+
+
+
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .popup {
+
+    &__close {
+      right: -18px;
+    }
+
+  }
+  .popup__request {
+    position: relative;
+    padding: 50px;
+    text-align: left;
+
+    &:after {
+      position: absolute;
+      left: -20px;
+      top: 50%;
+      width: 158px;
+      height: 235px;
+      background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMzUiIHdpZHRoPSIyNiIgdmlld0JveD0iMCAwIDQ4IDY0Ij48cGF0aCBmaWxsPSIjZTVlNWU1IiBkPSJNMzYuMiw2bC0yLjQtNC45QzMzLjQsMC40LDMyLjgsMCwzMiwwSDE2Yy0wLjgsMC0xLjUsMC40LTEuOCwxLjFMMTEuOCw2SDJDMC45LDYsMCw2LjksMCw4djU0IGMwLDEuMSwwLjksMiwyLDJoNDRjMS4xLDAsMi0wLjksMi0yVjhjMC0xLjEtMC45LTItMi0ySDM2LjJ6IE0xNy4yLDRoMTMuNWw0LDhIMTMuMkwxNy4yLDR6IE00NCw2MEg0VjEwaDUuOGwtMS42LDMuMSBjLTAuMywwLjYtMC4zLDEuNCwwLjEsMS45YzAuNCwwLjYsMSwwLjksMS43LDAuOWgyOGgwYzEuMSwwLDItMC45LDItMmMwLTAuNC0wLjEtMC44LTAuMy0xLjFMMzguMiwxMEg0NFY2MHoiLz48cGF0aCBmaWxsPSIjZTVlNWU1IiBkPSJNMzgsMjJIMjBjLTEuMSwwLTIsMC45LTIsMmMwLDEuMSwwLjksMiwyLDJoMThjMS4xLDAsMi0wLjksMi0yQzQwLDIyLjksMzkuMSwyMiwzOCwyMiIvPjxwYXRoIGZpbGw9IiNlNWU1ZTUiIGQ9Ik0zOCwzMkgyMGMtMS4xLDAtMiwwLjktMiwyYzAsMS4xLDAuOSwyLDIsMmgxOGMxLjEsMCwyLTAuOSwyLTJDNDAsMzIuOSwzOS4xLDMyLDM4LDMyIi8+PHBhdGggZmlsbD0iI2U1ZTVlNSIgZD0iTTM4LDQySDIwYy0xLjEsMC0yLDAuOS0yLDJjMCwxLjEsMC45LDIsMiwyaDE4YzEuMSwwLDItMC45LDItMkM0MCw0Mi45LDM5LjEsNDIsMzgsNDIiLz48cGF0aCBmaWxsPSIjZTVlNWU1IiBkPSJNMzgsNTJIMjBjLTEuMSwwLTIsMC45LTIsMmMwLDEuMSwwLjksMiwyLDJoMThjMS4xLDAsMi0wLjksMi0yQzQwLDUyLjksMzkuMSw1MiwzOCw1MiIvPjxwYXRoIGZpbGw9IiNlNWU1ZTUiIGQ9Ik0xMiwyMmgtMmMtMS4xLDAtMiwwLjktMiwyYzAsMS4xLDAuOSwyLDIsMmgyYzEuMSwwLDItMC45LDItMkMxNCwyMi45LDEzLjEsMjIsMTIsMjIiLz48cGF0aCBmaWxsPSIjZTVlNWU1IiBkPSJNMTIsMzJoLTJjLTEuMSwwLTIsMC45LTIsMmMwLDEuMSwwLjksMiwyLDJoMmMxLjEsMCwyLTAuOSwyLTJDMTQsMzIuOSwxMy4xLDMyLDEyLDMyIi8+PHBhdGggZmlsbD0iI2U1ZTVlNSIgZD0iTTEyLDQyaC0yYy0xLjEsMC0yLDAuOS0yLDJjMCwxLjEsMC45LDIsMiwyaDJjMS4xLDAsMi0wLjksMi0yQzE0LDQyLjksMTMuMSw0MiwxMiw0MiIvPjxwYXRoIGZpbGw9IiNlNWU1ZTUiIGQ9Ik0xMiw1MmgtMmMtMS4xLDAtMiwwLjktMiwyYzAsMS4xLDAuOSwyLDIsMmgyYzEuMSwwLDItMC45LDItMkMxNCw1Mi45LDEzLjEsNTIsMTIsNTIiLz48L3N2Zz4=) no-repeat;
+      background-size: contain;
+      content: '';
+    }
+
+    .gform_heading {
+      @include flexbox();
+      @include flex-wrap(wrap);
+      @include flex-direction(row);
+      @include justify-content(space-between);
+      @include align-items(flex-start);
+
+      .gform_title {
+        width: 30%;
+        padding: 0 20px 0 0;
+      }
+      .gform_description {
+        width: 70%;
+        padding: 6px 0 0;
+      }
+
+    }
+    .gform_fields {
+      padding-left: 30%;
+    }
+    .gform_footer {
+      padding-left: 30%;
+      text-align: right;
+    }
+    .gform_fields {
+
+      input[type="text"],
+      input[type="password"],
+      textarea,
+      input[type="email"],
+      input[type="tel"],
+      input[type="phone"],
+      input[type="number"] {
+        max-width: 100%;
+
+      }
+
+    }
+    .gfield {
+      max-width: 100%;
+      @include flexbox();
+      @include flex-wrap(wrap);
+      @include flex-direction(row);
+      @include justify-content(space-between);
+      @include align-items(flex-start);
+    }
+    .gfield_label {
+      width: 25%;
+    }
+    .ginput_container {
+      width: 70%;
+    }
+    .g-recaptcha {
+      margin: 0 0 0 auto;
+    }
+
   }
 
 }

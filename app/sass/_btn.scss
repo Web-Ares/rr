@@ -111,6 +111,31 @@ button.btn {
   font-size: 15px;
   line-height: 15px;
 }
+.btn_5 {
+  width: 203px;
+  height: 32px;
+  background: transparent;
+  border: 2px solid #a3a3a3;
+  color: #a3a3a3;
+  @include main-font1();
+  font-size: 17px;
+  line-height: 17px;
+
+  &:hover {
+    color: #fff;
+  }
+  &:active {
+
+    &:before {
+      background: #a3a3a3;
+    }
+
+  }
+  &:before {
+    background: #a3a3a3;
+  }
+
+}
 
 @-webkit-keyframes left {
   0% {
@@ -211,6 +236,16 @@ button.btn {
 
     }
 
+  }
+  .btn_5 {
+    width: 203px;
+    height: 32px;
+    background: transparent;
+    border: 2px solid #a3a3a3;
+    color: #a3a3a3;
+    @include main-font1();
+    font-size: 17px;
+    line-height: 17px;
   }
 
 }

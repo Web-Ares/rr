@@ -21,6 +21,10 @@
     margin: 0 0 19px 0;
   }
 
+  .clouds {
+    display: none;
+  }
+
 }
 .order__chosen-data {
   margin: 0 0 19px;
@@ -126,13 +130,14 @@
     }
 
     .clouds{
+      display: block;
 
       &.clouds_1 {
         top: auto;
         bottom: 14.5%;
       }
       &.clouds_2 {
-        top: -8%;
+        top: 3%;
       }
 
     }
@@ -144,14 +149,14 @@
 
   .order {
 
-    .clouds{
+    .clouds {
 
       &.clouds_1 {
         top: auto;
         bottom: 14.5%;
       }
       &.clouds_2 {
-        top: -8%;
+        top: 4%;
       }
 
     }
