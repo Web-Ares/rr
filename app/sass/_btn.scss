@@ -6,13 +6,13 @@
   overflow: hidden;
   position: relative;
   border: none;
-  width: 250px;
+  width: 290px;
   height: 40px;
   padding: 0 10px;
   border-radius: 40px;
   color: #fff;
-  font-size: 16px;
-  line-height: 16px;
+  font-size: 14px;
+  line-height: 14px;
   background: $btn-back;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
@@ -175,7 +175,7 @@ button.btn {
 @media (min-width: $tablet-portrait) {
 
   .btn {
-    width: 423px;
+    width: 553px;
     height: 81px;
     padding: 0 10px;
     border-radius: 80px;
