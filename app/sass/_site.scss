@@ -9,7 +9,11 @@
   @include main-font1();
 }
 .site__header {
-  position: relative;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 70px;
   background: #fff;
   box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
@@ -43,6 +47,9 @@
       }
 
     }
+
+  }
+  &.fixed {
 
   }
 
@@ -185,6 +192,7 @@
 .site__content {
   position: relative;
   z-index: 1;
+  margin-top: 70px;
 
   &.site__content_full {
     @include flexbox();
@@ -308,6 +316,9 @@ input[type="number"].site__input {
   }
   .site__header__btn {
     display: none;
+  }
+  .site__content {
+    margin-top: 53px;
   }
 
 }
