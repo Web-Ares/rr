@@ -192,7 +192,7 @@
 .site__content {
   position: relative;
   z-index: 1;
-  padding-top: 70px;
+  margin-top: 70px;
 
   &.site__content_full {
     @include flexbox();
@@ -318,7 +318,7 @@ input[type="number"].site__input {
     display: none;
   }
   .site__content {
-    padding-top: 53px;
+    margin-top: 53px;
   }
 
 }
