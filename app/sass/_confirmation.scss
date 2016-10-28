@@ -6,12 +6,10 @@
   >div {
 
     &:first-child {
-
       position: relative;
       max-width: 1251px;
-      padding: 0 0 67px 0;
+      padding: 40px 0;
       margin: 0 auto;
-
     }
 
   }
@@ -86,6 +84,14 @@
 @media (min-width: $desktop) {
 
   .confirmation {
+
+    >div {
+
+      &:first-child {
+        padding: 67px 0;
+      }
+
+    }
 
     .guy_2 {
       left: 0;
