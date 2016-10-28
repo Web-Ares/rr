@@ -536,6 +536,7 @@
             _window = $( window),
             _menuBtn = _obj.find('.site__header__btn'),
             _menuItems = _obj.find('.site__header-menu'),
+            _content = $('.site__content'),
             _html = $('html');
 
         //private methods
@@ -551,27 +552,6 @@
 
             },
             _onEvents = function () {
-
-                _window.on( {
-                    scroll: function () {
-
-                        if( _window.scrollTop() > 0 ) {
-
-                            _obj.addClass('fixed');
-
-                        } else {
-
-                            _obj.removeClass('fixed');
-
-                        }
-                    },
-                    resize: function() {
-
-
-
-                    }
-
-                } );
 
                 _menuBtn.on( {
 
@@ -608,16 +588,6 @@
 
                 _onEvents();
                 _obj[0].obj = _self;
-
-                if( _window.scrollTop() > _obj.innerHeight()/2 ) {
-
-                    _obj.addClass('fixed');
-
-                } else {
-
-                    _obj.removeClass('fixed');
-
-                }
 
             };
 
