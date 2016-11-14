@@ -164,6 +164,19 @@
   .setup-process {
     padding: 89px 0 73px;
 
+    &_1{
+      padding: 62px 0 99px;
+
+      .setup-process__actions{
+        padding-top: 22px;
+      }
+
+      .setup-process .clouds.clouds_1 {
+        top: -18.4%;
+      }
+
+    }
+
     .clouds {
 
       &.clouds_1 {

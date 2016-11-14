@@ -1,0 +1,153 @@
+.available-pricing {
+  position: relative;
+  z-index: 3;
+  padding: 60px 0;
+  background-color: #e2e2e2;
+  text-align: center;
+
+  .site__title {
+    margin: 0 0 10px;
+  }
+
+  &__wrap{
+    margin-bottom: 61px;
+  }
+
+  &__item{
+    margin-bottom: 25px;
+    padding: 33px 30px 37px;
+    font-size: 15px;
+    line-height: 18px;
+    background-color: #fff;
+  }
+
+  &__topic{
+    margin-bottom: 18px;
+    color: #ea6428;
+    @include main-font2;
+    font-size: 20px;
+  }
+
+  &__locations-item{
+    width: 296px;
+    margin: 0 auto 25px;
+    padding: 31px 21px 28px 38px;
+    background-color: #f3f3f3;
+
+    ul{
+      margin-top: 27px;
+      font-size: 15px;
+      line-height: 18px;
+    }
+
+    li{
+      position: relative;
+      margin-bottom: 7px;
+      padding-left: 22px;
+      text-align: left;
+
+      &:after {
+        position: absolute;
+        top: 2px;
+        left: 0;
+        width: 12px;
+        height: 12px;
+        border-radius: 12px;
+        background: url(../img/check.png) no-repeat center #707070;
+        background-size: 7px 7px;
+        content: '';
+      }
+
+    }
+
+  }
+
+  .learn-more:after{
+    border-top-color: #fff;
+    border-left-color: #fff;
+  }
+
+}
+.available-pricing__inner {
+  position: relative;
+  max-width: 910px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .available-pricing {
+
+    .site__title {
+      margin: 0 0 36px;
+    }
+
+    &__wrap{
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+    }
+
+    &__item{
+      width: 49%;
+      margin-bottom: 0;
+    }
+
+    &__locations{
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+    }
+
+    &__locations-item{
+      width: 32%;
+      margin: 0;
+      padding: 31px 14px 28px 22px;
+    }
+
+  }
+
+}
+@media (min-width: $desktop) {
+
+  .available-pricing {
+    padding: 62px 0 73px;
+
+    &__wrap{
+      padding: 0 48px;
+    }
+
+    &__item{
+      width: 438px;
+      margin-bottom: 0;
+    }
+
+    &__locations{
+      padding: 0 48px;
+    }
+
+    &__locations-item {
+      width: 296px;
+      padding: 31px 21px 28px 38px;
+    }
+
+    .learn-more {
+      bottom: 32px;
+    }
+
+    .clouds.clouds_1 {
+      top: 20%;
+    }
+
+  }
+  .available-pricing__inner {
+    max-width: 1010px;
+    padding: 0;
+  }
+
+  .site__title {
+    white-space: nowrap;
+  }
+
+}

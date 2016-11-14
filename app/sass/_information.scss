@@ -32,7 +32,6 @@
   }
 }
 
-
 @media (min-width: $tablet-portrait) {
 
   .information__items {
@@ -68,6 +67,19 @@
 
     .learn-more {
       bottom: 49px;
+    }
+
+    &_1{
+      padding-bottom: 152px;
+
+      .learn-more {
+        bottom: 38px;
+      }
+
+      .clouds.clouds_2 {
+        top: -15%;
+      }
+
     }
 
   }

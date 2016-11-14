@@ -136,6 +136,25 @@ button.btn {
   }
 
 }
+.btn_6 {
+  width: 270px;
+  background: #ea6428;
+
+  &:hover {
+    color: #349f4e;
+  }
+  &:active {
+
+    &:before {
+      background: #fff;
+    }
+
+  }
+  &:before {
+    background: #fff;
+  }
+
+}
 
 @-webkit-keyframes left {
   0% {
@@ -246,6 +265,9 @@ button.btn {
     @include main-font1();
     font-size: 17px;
     line-height: 17px;
+  }
+  .btn_6 {
+    width: 370px;
   }
 
 }

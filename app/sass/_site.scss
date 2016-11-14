@@ -186,6 +186,7 @@
   @include main-font2();
 }
 .site__anchors {
+  display: none;
   opacity: 0;
   visibility: hidden;
 }
@@ -257,7 +258,7 @@ input[type="number"].site__input {
   }
   .site__title_2 {
     margin: 0 0 35px;
-    font-size: 119px;
+    font-size: 79px;
     line-height: 124px;
   }
   .site__title_3 {
@@ -269,6 +270,7 @@ input[type="number"].site__input {
     max-width: 100%;
   }
   .site__anchors {
+    display: block;
     opacity: 1;
     visibility: visible;
     position: fixed;
@@ -310,6 +312,9 @@ input[type="number"].site__input {
 }
 @media (min-width: $desktop) {
 
+  .site__title_2 {
+    font-size: 119px;
+  }
   .site__header {
     padding-left: 198px;
     height: 53px;
