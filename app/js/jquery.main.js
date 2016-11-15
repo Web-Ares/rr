@@ -556,8 +556,8 @@
                        
                         $( '.gform_confirmation_message' ).remove();
                         $( '.order__place').append(_formClone);
-                        _obj.find( 'input').val('');
-                        
+                        $('#gform_3')[0].reset();
+                        console.log('ddd')
                     }, 3000 )
 
                 } );
