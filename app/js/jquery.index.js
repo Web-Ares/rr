@@ -15,7 +15,7 @@
 
         } );
 
-        $.each( $('.host__offer'), function () {
+        $.each( $('.host__offer-date'), function () {
 
             new HostOffer( $(this) );
 
@@ -132,8 +132,7 @@
     var HostOffer = function ( obj ) {
 
         var _self = this,
-            _obj = obj,
-            _date  = _obj.find('.host__offer-date');
+            _obj = obj;
 
         var _addEvents = function () {
 
@@ -152,7 +151,7 @@
 
                 }
 
-                _date.html( ''+ (resultDate.getMonth() + 1) +'/'+ (resultDate.getDate()) +'/'+ (resultDate.getFullYear()) +'' );
+                _obj.html( ''+ (resultDate.getMonth() + 1) +'/'+ (resultDate.getDate()) +'/'+ (resultDate.getFullYear()) +'' );
 
             },
             _init = function() {
