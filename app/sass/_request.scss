@@ -21,7 +21,13 @@
   }
 
   .order__place{
+    height: 275px;
     padding-top: 23px;
+
+    form:nth-child( 2 ){
+      display: none;
+    }
+
   }
 
 }
@@ -44,6 +50,10 @@
 
     &__sub-title{
       font-size: 29.5px;
+    }
+
+    .order__place{
+      height: 316px;
     }
 
   }
