@@ -33,11 +33,11 @@
 
         } );
 
-       /* $(document).bind('gform_confirmation_loaded', function(){
+        $(document).bind('gform_confirmation_loaded', function(){
 
             $('.popup__request').addClass('popup__request_no-bg');
 
-        } );*/
+        } );
 
     } );
 
@@ -595,7 +595,6 @@
         _init();
     };
 
-/*
     var Popup = function( obj ){
 
         //private properties
@@ -712,6 +711,6 @@
 
 
         _init();
-    };*/
+    };
 
 } )();
