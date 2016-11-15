@@ -23,41 +23,6 @@ var paths = {
                 'app/js/jquery.index.js',
                 'app/js/jquery.main.js'
             ]
-        },
-        {
-            dist: 'confirmation.min.js',
-            contains: [
-                'app/js/jquery.main.js',
-                'app/js/jquery.confirmation.js'
-            ]
-        },
-        {
-            dist: 'checkout.min.js',
-            contains: [
-                'app/js/jquery.main.js',
-                'app/js/jquery.checkout.js'
-            ]
-        },
-        {
-            dist: 'order.min.js',
-            contains: [
-                'app/js/jquery.main.js',
-                'app/js/jquery.checkout.js',
-                'app/js/jquery.form.validator.js'
-            ]
-        },
-        {
-            dist: 'ui.min.js',
-            contains: [
-                'app/js/jquery.popup.js',
-                'app/js/jquery.websters-select.js'
-            ]
-        },
-        {
-            dist: 'tabs.min.js',
-            contains: [
-                'app/js/jquery.tabs.js'
-            ]
         }
     ],
     vendorScripts: 'app/js/vendors/**/*.js',

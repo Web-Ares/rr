@@ -15,17 +15,17 @@
 
         } );
 
-        $.each( $('.site__content_full'), function () {
+        /*$.each( $('.site__content_full'), function () {
 
             new ContentFullHeight( $(this) );
 
-        } );
+        } );*/
 
-        $.each( $('.plans'), function () {
+        /*$.each( $('.plans'), function () {
 
             new PlansChooseHeight( $(this) );
 
-        } );
+        } );*/
 
         $.each( $('.site__header'), function () {
 
@@ -33,17 +33,11 @@
 
         } );
 
-        $('.popup').each( function() {
-
-            new Popup( $(this) );
-
-        } );
-
-        $(document).bind('gform_confirmation_loaded', function(){
+       /* $(document).bind('gform_confirmation_loaded', function(){
 
             $('.popup__request').addClass('popup__request_no-bg');
 
-        } );
+        } );*/
 
     } );
 
@@ -420,7 +414,7 @@
         _init();
     };
 
-    var ContentFullHeight = function ( obj ) {
+    /*var ContentFullHeight = function ( obj ) {
 
         var _self = this,
             _obj = obj,
@@ -452,9 +446,9 @@
             };
 
         _init();
-    };
+    };*/
 
-    var PlansChooseHeight = function ( obj ) {
+    /*var PlansChooseHeight = function ( obj ) {
 
         var _self = this,
             _obj = obj,
@@ -532,7 +526,7 @@
             };
 
         _init();
-    };
+    };*/
 
     var Menu = function (obj) {
 
@@ -601,6 +595,7 @@
         _init();
     };
 
+/*
     var Popup = function( obj ){
 
         //private properties
@@ -717,6 +712,6 @@
 
 
         _init();
-    };
+    };*/
 
 } )();
