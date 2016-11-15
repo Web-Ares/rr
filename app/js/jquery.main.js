@@ -555,11 +555,13 @@
                     setTimeout( function() {
                        
                         $( '.gform_confirmation_message' ).remove();
+                        _obj.find( 'input').val('');
                         $( '.order__place').append(_formClone);
                         
                     }, 3000 )
 
                 } );
+
             },
             _init = function () {
 
