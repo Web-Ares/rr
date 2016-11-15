@@ -1,6 +1,6 @@
 "use strict";
 ( function() {
-
+   var  formClone;
     $( function() {
 
         $.each( $('.clouds'), function () {
@@ -39,25 +39,13 @@
 
         } );
 
-        $.each( $('#gform'), function () {
+        $.each( $('#gform_3'), function () {
 
             new Form( $(this) );
 
         } );
 
-        $(document).bind('gform_confirmation_loaded', function(){
-
-            /*$('.popup__request').addClass('popup__request_no-bg');*/
-
-            setTimeout( function() {
-
-                $( '.gform_confirmation_message' ).remove();
-                $( '#gform').obj[0].clone();
-
-
-            }, 3000 )
-
-        } );
+       
 
     } );
 
@@ -552,13 +540,26 @@
 
         //private properties
         var _self = $( this ),
+            _formClone = $('#gform_wrapper_3'),
             _obj = obj;
 
         //private methods
         var _onEvents = function () {
 
-                _obj.clone().appendTo( '.order__place' )
+                _formClone = _formClone.clone(true);
 
+                $(document).bind('gform_confirmation_loaded', function(){
+
+                    /*$('.popup__request').addClass('popup__request_no-bg');*/
+
+                    setTimeout( function() {
+                       
+                        $( '.gform_confirmation_message' ).remove();
+                        $( '.order__place').append(_formClone);
+                        
+                    }, 3000 )
+
+                } );
             },
             _init = function () {
 
