@@ -754,7 +754,6 @@
                 _contents.css( { display: 'none' } );
                 curContent.css( { display: 'block' } );
             };
-
         //public properties
 
         //public methods
