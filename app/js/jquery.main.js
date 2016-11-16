@@ -15,11 +15,11 @@
 
         } );
 
-        $.each( $('.popup'), function () {
+        /*$.each( $('.popup'), function () {
 
             new Popup( $(this) );
 
-        } );
+        } );*/
 
         /*$.each( $('.site__content_full'), function () {
 
@@ -645,7 +645,7 @@
         _init();
     };
 
-    var Popup = function( obj ){
+    /*var Popup = function( obj ){
 
         //private properties
         var _self = this,
@@ -760,6 +760,6 @@
 
 
         _init();
-    };
+    };*/
 
 } )();
