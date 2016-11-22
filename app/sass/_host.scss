@@ -121,12 +121,12 @@
     @include flex-wrap(wrap);
     @include flex-direction(row);
     @include justify-content(space-between);
-    @include align-items(flex-start);
+    @include align-items(center);
     padding-left: 7px;
 
     .site__list {
       padding: 0 10px 0 0;
-      width: 65%;
+      width: 55%;
     }
     .host__clients {
       width: 46%;
@@ -179,26 +179,12 @@
     padding: 0 65px;
 
     .host__clients {
-      width: 30%;
       margin-right: 28px;
     }
 
   }
   .host__discount {
     left: -78px;
-  }
-
-}
-
-@media (min-width: 1200px) {
-
-  .host__inner {
-
-    .host__clients {
-      width: 32%;
-      margin-right: 28px;
-    }
-
   }
 
 }
