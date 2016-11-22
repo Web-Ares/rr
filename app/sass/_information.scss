@@ -52,7 +52,7 @@
 
   }
   .information__device {
-    margin: 37px 0 0;
+    margin: 0;
   }
   .information__awards {
     margin: 32px 0 0 -5px;
@@ -60,6 +60,7 @@
   }
 
 }
+
 @media (min-width: $desktop) {
 
   .information {
