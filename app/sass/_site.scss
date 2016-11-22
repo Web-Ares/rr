@@ -172,7 +172,7 @@
 }
 .site__title_2 {
   margin: 0 0 35px;
-  font-size: 50px;
+  font-size: 43px;
   line-height: 60px;
 }
 .site__sub-title {
@@ -257,9 +257,10 @@ input[type="number"].site__input {
     line-height: 60px;
   }
   .site__title_2 {
-    margin: 0 0 35px;
+    margin: 0 0 20px;
     font-size: 79px;
     line-height: 124px;
+    letter-spacing: -1px;
   }
   .site__title_3 {
     margin: 0 0 35px;
@@ -324,6 +325,9 @@ input[type="number"].site__input {
   }
   .site__content {
     margin-top: 53px;
+  }
+  .site__list {
+    margin: 0;
   }
 
 }

@@ -13,7 +13,8 @@
 
 }
 .host_1{
-  padding: 40px 0 100px;
+  padding: 40px 0 86px;
+  overflow: hidden;
 }
 .host__inner {
   position: relative;
@@ -45,12 +46,11 @@
   transform: rotate(-6deg);
 }
 .host__head {
-  max-width: 750px;
   margin: 0 auto;
 }
 .host__clients {
   margin: 0 auto 30px;
-  max-width: 511px;
+  max-width: 365px;
 
   img {
     display: block;
@@ -122,14 +122,15 @@
     @include flex-direction(row);
     @include justify-content(space-between);
     @include align-items(flex-start);
-    padding-left: 36px;
+    padding-left: 7px;
 
     .site__list {
       padding: 0 10px 0 0;
-      width: 54%;
+      width: 65%;
     }
     .host__clients {
       width: 46%;
+      margin: 0 auto;
     }
 
   }
@@ -166,7 +167,7 @@
 
   }
   .host_1{
-    padding: 34px  0 127px;
+    padding: 34px  0 86px;
 
     .clouds.clouds_1 {
       top: 11%;
@@ -176,9 +177,28 @@
   .host__inner {
     max-width: 1294px;
     padding: 0 65px;
+
+    .host__clients {
+      width: 30%;
+      margin-right: 28px;
+    }
+
   }
   .host__discount {
     left: -78px;
+  }
+
+}
+
+@media (min-width: 1200px) {
+
+  .host__inner {
+
+    .host__clients {
+      width: 32%;
+      margin-right: 28px;
+    }
+
   }
 
 }

@@ -52,11 +52,11 @@
   }
 
   &:nth-child(1) {
-    background-image: url("../img/setup-action-icon1.png");
-    background-size: 42px;
+    background-image: url("../img/setup-action-icon2.png");
+    background-size: 34px;
   }
   &:nth-child(2) {
-    background-image: url("../img/setup-action-icon2.png");
+    background-image: url("../img/setup-action-icon1.png");
     background-size: 32px 42px;
   }
   &:nth-child(3) {
@@ -131,7 +131,7 @@
   }
   .setup-process__actions-item {
     position: relative;
-    width: 25%;
+    width: 24%;
     padding: 70px 0 0;
     background-position: top center;
     background-repeat: no-repeat;
@@ -165,7 +165,7 @@
     padding: 89px 0 73px;
 
     &_1{
-      padding: 62px 0 99px;
+      padding: 62px 0 127px;
 
       .setup-process__actions{
         padding-top: 22px;
